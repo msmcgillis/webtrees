@@ -54,10 +54,23 @@ class BaseUrl implements MiddlewareInterface
 
         if ($base_url === '') {
             // Guess the base URL from the request URL.
-            $base_url    = rtrim(explode('index.php', (string) $request_url)[0], '/');
+            $parts    = explode('index.php', $request_url->getPath());
+            $base_url = rtrim($parts[0], '/');
             $request     = $request->withAttribute('base_url', $base_url);
             $base_path   = parse_url($base_url, PHP_URL_PATH) ?? '';
             $request_url = $request_url->withPath($base_path);
+
+            # fudge in route if we have already
+            if (count($parts)==2 && $parts[1] != '') {
+              $query = $request->getQueryParams();
+              if (!in_array('route',$query)) {
+                $query['route']=$parts[1];
+                # seems the request does not update its params when uri changed
+                $request=$request->withQueryParams($query);
+                $request_url=$request_url->withQuery(http_build_query($query));
+              }
+            }
+            
 
             $request = $request->withUri($request_url);
         } else {

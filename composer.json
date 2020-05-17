@@ -8,7 +8,8 @@
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
-            "Fisharebest\\Webtrees\\": "app/"
+            "Fisharebest\\Webtrees\\": "app/",
+            "FamilyCircles\\": "FamilyCircles/"
         },
         "files": [
             "app/Helpers/functions.php"

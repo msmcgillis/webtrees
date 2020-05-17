@@ -45,6 +45,7 @@ return array(
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
+    'FamilyCircles\\' => array($baseDir . '/FamilyCircles'),
     'Fisharebest\\Webtrees\\' => array($baseDir . '/app'),
     'Fisharebest\\Localization\\' => array($vendorDir . '/fisharebest/localization/src'),
     'Fisharebest\\Flysystem\\Adapter\\' => array($vendorDir . '/fisharebest/flysystem-chroot-adapter/src'),

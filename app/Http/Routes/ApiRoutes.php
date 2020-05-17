@@ -20,6 +20,9 @@ declare(strict_types=1);
 namespace Fisharebest\Webtrees\Http\Routes;
 
 use Aura\Router\Map;
+use FamilyCircles\Search;
+use FamilyCircles\Get;
+use FamilyCircles\Config;
 
 /**
  * Routing table for API requests
@@ -28,5 +31,12 @@ class ApiRoutes
 {
     public function load(Map $router): void
     {
+      $router->attach('', '/fc/{tree}', static function (Map $router) {
+
+        $router->get(Search::class, '/object', Search::class);
+        $router->get(Get::class, '/object/{id}', Get::class);
+        $router->get(Config::class, '/config', Config::class);
+
+      });
     }
 }

@@ -217,6 +217,7 @@ class MediaFileController extends AbstractBaseController
             return response($server->getCache()->read($path), StatusCodeInterface::STATUS_OK, [
                 'Content-Type'   => $server->getCache()->getMimetype($path),
                 'Content-Length' => $server->getCache()->getSize($path),
+                'Access-Control-Allow-Origin' => '*',
                 'Cache-Control'  => 'max-age=31536000, public',
                 'Expires'        => Carbon::now()->addYears(10)->toRfc7231String(),
             ]);

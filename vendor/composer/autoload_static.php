@@ -281,6 +281,10 @@ class ComposerStaticInit00d031cf6ee8ec5ce4becbbe7ea38e99
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'FamilyCircles\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/FamilyCircles',
+        ),
         'Fisharebest\\Webtrees\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
